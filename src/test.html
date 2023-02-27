@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NeuralABC</title>
+  <link rel='stylesheet' href='./bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
+
+  <script src="awsLambdaReq.js"></script>
+</head>
+ 
+<body>
+    <input type="text" maxlength="1000" name="userTextbox" id='userText' />
+    <input type="button" value="Translate" onclick="awsLambdaAPI(document.getElementById('userText').value)" />
+        
+    <p id="returnedText">Spell out a day (Monday, Tuesday, ...) and click the button</p>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NeuralABC</title>
+  <link rel='stylesheet' href='./bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
+
+  <script src="apiReq.js"></script>
+  <script src="jsFuncs.js"></script>
+</head>
+ 
+<body>
+  <!-- <div class="waveContent" style="height:auto; width:auto; padding:0;">
+    <h2>TurboTongue</h2>
+    <h2>TurboTongue</h2>
+  </div> -->
+
+  <br>
+
+  <div>
+    <h1 id="heading1" style="text-align:center; height:auto; width:auto; font-family:'Arial Black', Gadget, sans-serif">
+      &#x1F30D Translation + Formalization &#x1F30E
+    </h1>
+  </div>
+
+  <br><br>
+  <p style="font-family:'Arial Black', Gadget, sans-serif"> This demo takes an input text in a variety of languages and returns a formalized output in English.
+  The English model is for English-to-English formalization, running only the formalization model. E.g. it can take an informal English input like "yo homie how you doin" and return something like "How are you doing, my friend?".
+  </p>
+  
+  <p>This page is only for demo purposes so models are not always-on. 
+    <b>This is because it uses 18 different natural language models.</b> 
+    The models can be made readily available within the context of a commercial application. 
+    As such it may take a minute or two minutes to load each model. 
+    If you do bi-layer translation + formalization it may have to load two models so try it a few times. </p>
+
+  <p id="userLanguageSelection">Choose your input language: </p>
+  <select name="languageSelectBox" id="languageSelection">
+    <option value="en">English-English Formalization</option>
+    <option value="ar">Arabic / العربية الفصحى</option>
+    <option value="bn">Bengali / বাংলা</option>
+    <option value="zh">Mandarin Chinese / 普通话</option>
+    <option value="fr">French / français</option>
+    <option value="de">German / Deutsch</option>
+    <option value="hi">Hindi / हिन्दी</option>
+    <option value="it">Italian / italiano </option>
+    <option value="ja">Japanese / 日本語</option>
+    <option value="ko">Korean / 한국어</option>
+    <option value="ml">Malaysian / Bahasa Melayu بهاس ملايو</option>
+    <option value="pl">Polish / polski</option>
+    <option value="ru">Russian / Русский язык</option>
+    <option value="es">Spanish / español </option>
+    <option value="th">Thai / ภาษาไทย</option>
+    <option value="tr">Turkish / Türkçe</option>
+    <option value="uk">Ukrainian / українська мова</option>
+    <option value="vi">Vietnamese / Tiếng Việt (㗂越)</option>
+  </select>
+
+    <p id="paragraph1" style="font-family:'Arial Black', Gadget, sans-serif"> This program allows you to generate text from some input</p>
+
+    <textarea name="userTextbox" id="userText" autofocus placeholder="Type your input sentence here. E.g. if you want to do Spanish-English translation + formalization you might try 'hola hombre donde esta el proyecto del lunes' or for English-English formalization you might type 'yo homie how you doin' "></textarea>
+    <input type="button" value="Translate and Formalize" onclick="formalformer(document.getElementById('userText').value, document.getElementById('languageSelection').value)" />
+    
+    <div id="loadingAnimation"></div>
+    <div>
+      <!-- <textarea id="translatedText"></textarea> -->
+      <textarea id="formalizedText"></textarea>
+      <input type="button" value="Copy &#x1F4CB" onclick="copy2clipboard()"/>
+    </div>
+
+    <script src="awsLambdaReq.js"></script>
+    <input type="text" maxlength="1000" name="userTextbox2" id='userText2' />
+    <input type="button" value="lamdaGate" onclick="awsLambdaAPI(document.getElementById('userText2').value)" />
+        
+    <p id="returnedText">Spell out a day (Monday, Tuesday, ...) and click the button</p>
+
+</body>
+</html>
